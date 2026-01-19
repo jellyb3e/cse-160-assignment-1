@@ -25,7 +25,7 @@ let u_Size;
 var shapes_list = [];
 
 // color sliders & side slider
-let r,g,b,size_slider,seg_slider;
+let r, g, b, size_slider, seg_slider;
 let type = 'point';
 
 function main() {
@@ -62,6 +62,9 @@ function click(ev) {
       break;
     case 'circle':
       shape = new Circle([x,y],size,color,segments);
+      break;
+    case 'brush':
+      shape = new Brush([x,y],size,color,segments);
       break;
     default:
       console.log("what gong on");
@@ -148,6 +151,7 @@ function fetchDocumentElements() {
   document.getElementById("point-button").addEventListener("click", () => { type = 'point' });
   document.getElementById("triangle-button").addEventListener("click", () => { type = 'triangle' });
   document.getElementById("circle-button").addEventListener("click", () => { type = 'circle' });
+  document.getElementById("brush-button").addEventListener("click", () => { type = 'brush' });
   document.getElementById("draw-button").addEventListener("click", () => {
     shapes_list.push(new Squirrel);
     renderAllShapes();
