@@ -27,6 +27,7 @@ var shapes_list = [];
 // color sliders & side slider
 let r, g, b, size_slider, seg_slider;
 let type = 'point';
+let showingInitials = false;
 
 function main() {
   setupWebGL();
@@ -153,13 +154,13 @@ function fetchDocumentElements() {
   document.getElementById("circle-button").addEventListener("click", () => { type = 'circle' });
   document.getElementById("brush-button").addEventListener("click", () => { type = 'brush' });
   document.getElementById("draw-button").addEventListener("click", () => {
-    shapes_list.push(new Squirrel);
+    shapes_list.push(new Squirrel(showingInitials));
     renderAllShapes();
   });
   document.getElementById("initials-on").addEventListener("click", () => {
-    showInitials(true);
+    showingInitials = true;
   });
   document.getElementById("initials-off").addEventListener("click", () => {
-    showInitials(false);
+    showingInitials = false;
   });
 }

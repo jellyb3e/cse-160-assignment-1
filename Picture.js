@@ -13,6 +13,9 @@ const shadow_sky_blue = [138, 166, 184];
 const shadow_darker_brown = [79, 51, 34];
 
 class Squirrel {
+    constructor(showing = false) {
+        this.showingInitials = showing;
+    }
     // canvas goes from -1 to 1
     render() {
         // background
@@ -76,7 +79,7 @@ class Squirrel {
         drawRect([-8,-5],[-7,-4]);
 
         // initials
-        showInitials(false);
+        showInitials(this.showingInitials);
     }
 }
 
